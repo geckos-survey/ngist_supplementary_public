@@ -101,6 +101,7 @@ SFH :
   LMIN : 4750 # Rest-frame wavelength range used for the star formation histories analysis [in Angst.]
   LMAX : 7100
   SPEC_MASK : 'specMask_SFH' # File to define wavelength ranges to be masked during the star formation histories analysis. The specified path is relative to the configDir path in defaultDir. 
+  SPEC_EMICLEAN : False # Keyword (True/False) to enable/disable the use of emission line cleaned spectra from the Emission Line Fitting Module.   
   MOM : 4 # Number of kinematic moments to be extracted. If you use FIXED = True, this should be same number of moments used to extract the stellar kinematics before. Otherwise the parameter can be set independently. 
   MDEG : 12 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials. Note that additive Legendre polynomials cannot be used for this module. 
   REGUL_ERR : 1. # Regularisation error for the regularised run of pPXF. Note: Regularisation = 1 / REGUL_ERR
