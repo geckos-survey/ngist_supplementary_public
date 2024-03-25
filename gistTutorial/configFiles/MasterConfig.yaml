@@ -47,6 +47,7 @@ KIN :
   LMIN : 4750 # Rest-frame wavelength range used for the stellar kinematics analysis [in Angst.]
   LMAX : 7100
   SIGMA : 100 # Initial guess of the velocity dispersion of the system [in km/s]
+  BIAS : 'Auto' # Bias value for if MOM > 2. If set to 'Auto', bias is automaticalculated by Cappellari & Emsellem (2004): bias = 0.7*np.sqrt(500./self.goodpixels.size)
   MOM : 4 # Number of kinematic moments to be extracted
   ADEG : 12 # Degree of the additive Legendre polynomial. Set '-1' to not include any additive polynomials
   MDEG : 0 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials
