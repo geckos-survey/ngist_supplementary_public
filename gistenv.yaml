@@ -13,6 +13,8 @@ dependencies:
   - multiprocess
   - spectral-cube
   - extinction
+  - ipython
+  - jupyter  
   - pip
   - pip:
     - latex
