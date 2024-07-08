@@ -25,7 +25,7 @@ READ_DATA :
 SPATIAL_MASKING :
   METHOD : 'default' # Name of the routine in spatialMasking/ (without .py) to perform the tasks. Set False to turn off module. Set 'default' to use the standard GIST implementation.
   MIN_SNR : 20.0 # Spaxels below the isophote level which has this mean signal-to-noise level are masked.
-  MASK : 'NGC0000_mask.fits' # File containing a spatial mask (Set 'False' to not include a file).
+  MASK : 'NGC0000_mask.fits' # File containing a spatial mask (Set False to not include a file).
 
 # Spatial binning module
 SPATIAL_BINNING :
@@ -74,7 +74,7 @@ CONT :
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS' or 'walcher'
   LIBRARY : 'MILES/' # options are 'MILES/', 'miles_ssp_ch/', 'IndoUS', and 'Walcher/'
   NORM_TEMP : 'LIGHT' # Normalise the spectral template library to obtain light- or mass-weighted results [LIGHT / MASS]
-  DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to 'False' for testing.
+  DOCLEAN : True # Keyword to turn on/off the sigma clipping. Set to False for testing.
 
 # Emission line fitting module
 GAS :
@@ -84,7 +84,7 @@ GAS :
   LMIN : 4750 # Rest-frame wavelength range used for the emission-line analysis [in Angst.]
   LMAX : 7100
   ERRORS : 0 # Derive errors on the emission-line analysis (0 No / 1 Yes). Note: Due to limitations in pyGandALF, this is currently not possible. We expect a new pyGandALF version to be published soon.
-  REDDENING : False # Include the effect of reddening by dust in the pyGandALF fit. Put in the form 0.1,0.1 without any spaces. If you intend to use multiplicative polynomials instead, set REDDENING to 'False' and add a MDEG keyword in the GAS section to set the polynomial order. Additive polynomials cannot be used with pyGandALF.
+  REDDENING : False # Include the effect of reddening by dust in the pyGandALF fit. Put in the form 0.1,0.1 without any spaces. If you intend to use multiplicative polynomials instead, set REDDENING to False and add a MDEG keyword in the GAS section to set the polynomial order. Additive polynomials cannot be used with pyGandALF.
   MDEG : 8 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials.
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]
   MOM : 2 # Gas moments. Set to 2 for V and sigma. Higher orders not yet tested 
@@ -106,7 +106,7 @@ SFH :
   MDEG : 12 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials. Note that additive Legendre polynomials cannot be used for this module. 
   REGUL_ERR : 1. # Regularisation error for the regularised run of pPXF. Note: Regularisation = 1 / REGUL_ERR
   NOISE : 1. # Set a wavelength independent noise vector to be passed to pPXF. 
-  FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]. If 'False', please provide an initial guess on the velocity dispersion of the systems [in km/s] by adding the parameter SIGMA. 
+  FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]. If False, please provide an initial guess on the velocity dispersion of the systems [in km/s] by adding the parameter SIGMA. 
   MC_PPXF : 0 # Added to add the option of running MC on the SFH module
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS (not recc.)'
