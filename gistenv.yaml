@@ -10,11 +10,13 @@ dependencies:
   - scipy
   - pyqt
   - matplotlib
-  - multiprocess
   - spectral-cube
   - extinction
   - ipython
-  - jupyter  
+  - jupyter
+  - h5py
+  - joblib
+  - tqdm
   - pip
   - pip:
     - latex
