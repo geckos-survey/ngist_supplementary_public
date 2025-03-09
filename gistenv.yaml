@@ -17,4 +17,7 @@ dependencies:
   - h5py
   - joblib
   - tqdm
-  - ppxf
+  - pip
+  - pip:
+    - printStatus
+    - ppxf
