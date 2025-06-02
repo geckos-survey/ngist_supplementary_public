@@ -1,4 +1,4 @@
-name: gistenv
+name: ngistenv
 channels:
   - conda-forge
   - default
