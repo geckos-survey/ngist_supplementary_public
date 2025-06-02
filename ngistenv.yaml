@@ -21,4 +21,4 @@ dependencies:
   - pip:
     - printStatus
     - ppxf
-	- emcee
+    - emcee
