@@ -22,5 +22,5 @@ dependencies:
     - printStatus
     - ppxf
     - emcee
-	- plotbin
-	- vorbin
+    - plotbin
+    - vorbin
