@@ -9,7 +9,8 @@ GENERAL :
   LSF_DATA : 'lsf_MUSE-WFM-MILES' # Path of the file specifying the line-spread-function of the observational data. The specified path is relative to the configDir path in defaultDir.
   OW_CONFIG : False #  Ignore configurations from previous runs which are saved in the CONFIG file in the output directory [True/False]
   OW_OUTPUT : False # Overwrite any output files already present in the current output directory [True/False]
-
+  CREATE_HTML : False # option to create HTML pages similar to Mapviewer outputs
+  
 # Read data module
 READ_DATA :
   METHOD : 'MUSE_WFM' # Name of the routine in readData/ (without .py) to be used to read-in the input data.
@@ -83,7 +84,7 @@ CONT :
   DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
   NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
   PLOT : False # produce extra output plots
-  DEBUG_BIN : [97] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
+  DEBUG_BIN : [1] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
   SAVE_HDF5 : False # Optional Keyword to save outputs in HDF5
 
 # Emission line fitting module
@@ -127,7 +128,7 @@ SFH :
   DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
   NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
   PLOT : False # produce extra output plots
-  DEBUG_BIN : [97] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
+  DEBUG_BIN : [1] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 
 # Line strenghts module
 LS :

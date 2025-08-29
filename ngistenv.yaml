@@ -24,3 +24,5 @@ dependencies:
     - emcee
     - plotbin
     - vorbin
+    - plotly
+    - pandas
