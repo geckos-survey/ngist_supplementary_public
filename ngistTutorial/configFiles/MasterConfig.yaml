@@ -30,7 +30,7 @@ SPATIAL_MASKING :
 
 # Spatial binning module
 SPATIAL_BINNING :
-  METHOD : 'voronoi' # Name of the routine in spatialBinning/ (without .py) to perform the tasks. Set False to turn off module. Set 'voronoi' to use the standard GIST implementation, exploiting the Voronoi tesselation routine of Cappellari & Copin (2003).
+  METHOD : 'voronoi' # Name of the routine in spatialBinning/ (without .py) to perform the tasks. Set 'spaxel' to turn off module. Set 'voronoi' to use the standard GIST implementation, exploiting the Voronoi tesselation routine of Cappellari & Copin (2003).
   TARGET_SNR : 500.0 # Target signal-to-noise ratio for the Voronoi binning
   COVARIANCE : 0.0 # Correct for spatial correlations of the noise during the Voronoi binning process according to the empirical equation SNR /= 1 + COVAR_VOR * np.log10(NSPAXEL) with NSPAXEL being the number of spaxels per bin (see e.g. Garcia-Benito et al. 2015).
 
@@ -66,7 +66,6 @@ KIN :
 # Continuum Cube module
 CONT :
   METHOD : 'ppxf' # Name of the routine in stellarKinematics/ (without .py) to perform the tasks. Set False to turn off module. Set 'ppxf' to use the standard GIST implementation, exploiting the pPXF routine of Cappellari & Emsellem (2004).
-  #SPEC_PREMASK : 'specMask_KIN' # Optional mask if you want the first steps to use a different mask as compared to the final fit
   SPEC_MASK : 'specMask_KIN' # File to define wavelength ranges to be masked during the stellar kinematics fit. The specified path is relative to the configDir path in defaultDir.
   LMIN : 4750 # Rest-frame wavelength range used for the stellar kinematics analysis [in Angst.]
   LMAX : 7100
@@ -85,7 +84,6 @@ CONT :
   NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
   PLOT : False # produce extra output plots
   DEBUG_BIN : [1] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
-  SAVE_HDF5 : False # Optional Keyword to save outputs in HDF5
 
 # Emission line fitting module
 GAS :
@@ -95,12 +93,12 @@ GAS :
   LMIN : 4750 # Rest-frame wavelength range used for the emission-line analysis [in Angst.]
   LMAX : 7100
   ERRORS : 0 # Derive errors on the emission-line analysis (0 No / 1 Yes). Note: Due to limitations in pyGandALF, this is currently not possible. We expect a new pyGandALF version to be published soon.
-  REDDENING : False # Include the effect of reddening by dust in the pyGandALF fit. Put in the form 0.1,0.1 without any spaces. If you intend to use multiplicative polynomials instead, set REDDENING to False and add a MDEG keyword in the GAS section to set the polynomial order. Additive polynomials cannot be used with pyGandALF.
+  DUST_CORR : False # Include the effect of reddening by dust in the pyGandALF fit. Put in the form 0.1,0.1 without any spaces. If you intend to use multiplicative polynomials instead, set REDDENING to False and add a MDEG keyword in the GAS section to set the polynomial order. Additive polynomials cannot be used with pyGandALF.
   MDEG : 8 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials.
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]
   MOM : 2 # Gas moments. Set to 2 for V and sigma. Higher orders not yet tested 
   EBmV : null # As opposed to None. De-redden the spectra for the Galactic extinction in the direction of the target previously to the analysis. Use e.g. EBmV = A_v / 3.2
-  EMI_FILE : 'emissionLinesPHANGS.config' # Emission line set-up file for emline fitter. The specified path is relative to the configDir path in defaultDir. Set to 'emissionLinesPHANGS.config' when using the 'ppxf' routine, and 'emissionLines.config' when using the 'gandalf' or 'MAGPI_gandalf' routines.
+  EMI_FILE : 'emissionLines_ppxf.config' # Emission line set-up file for emline fitter. The specified path is relative to the configDir path in defaultDir. Set to 'emissionLinesPHANGS.config' when using the 'ppxf' routine, and 'emissionLines.config' when using the 'gandalf' or 'MAGPI_gandalf' routines.
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS'
   LIBRARY : 'MILES/' # options are 'MILES_EMLINES/' (contains asmaller subset of templates sim to that used by PHANGS) 'MILES/', 'miles_ssp_ch', or 'IndoUS'
@@ -111,12 +109,11 @@ SFH :
   METHOD : 'ppxf' # Name of the routine in starFormationHistories/ (without .py) to perform the tasks. Set False to turn off module. Set 'ppxf' to use the standard GIST implementation, exploiting the pPXF routine of Cappellari & Emsellem (2004).
   LMIN : 4750 # Rest-frame wavelength range used for the star formation histories analysis [in Angst.]
   LMAX : 7100
-  #SPEC_PREMASK : 'specMask_SFH' # Optional mask if you want the first steps to use a different mask as compared to the final fit
   SPEC_MASK : 'specMask_SFH' # File to define wavelength ranges to be masked during the star formation histories analysis. The specified path is relative to the configDir path in defaultDir. 
   SPEC_EMICLEAN : False # Keyword (True/False) to enable/disable the use of emission line cleaned spectra from the Emission Line Fitting Module.   
   MOM : 4 # Number of kinematic moments to be extracted. If you use FIXED = True, this should be same number of moments used to extract the stellar kinematics before. Otherwise the parameter can be set independently. 
   MDEG : 12 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials. Note that additive Legendre polynomials cannot be used for this module. 
-  REGUL_ERR : 1. # Regularisation error for the regularised run of pPXF. Note: Regularisation = 1 / REGUL_ERR
+  REGUL : 1. # Regularisation keyword for the regularised run of pPXF. 
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]. If False, please provide an initial guess on the velocity dispersion of the systems [in km/s] by adding the parameter SIGMA. 
   MC_PPXF : 0 # Added to add the option of running MC on the SFH module
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.

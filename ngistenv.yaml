@@ -17,6 +17,7 @@ dependencies:
   - h5py
   - joblib
   - tqdm
+  - multiprocess
   - pip
   - pip:
     - printStatus
