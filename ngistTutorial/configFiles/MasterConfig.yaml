@@ -61,7 +61,7 @@ KIN :
   DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
   NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
   PLOT : False # produce extra output plots for each bin
-  DEBUG_BIN : [97] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 
 # Continuum Cube module
 CONT :
@@ -83,7 +83,7 @@ CONT :
   DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
   NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
   PLOT : False # produce extra output plots
-  DEBUG_BIN : [1] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 
 # Emission line fitting module
 GAS :
@@ -125,7 +125,7 @@ SFH :
   DUST_CORR : True # True/False, fixes the dust in the final pPXF fit 
   NOISE : 'variance' # Keyword to set noise to be used in pPXF run. Option 'constant' and 'variance'
   PLOT : False # produce extra output plots
-  DEBUG_BIN : [1] # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
+  DEBUG_BIN : False # Optional Keyword - array of bins [1,2,3] - only works when parallel = False. 
 
 # Line strenghts module
 LS :
