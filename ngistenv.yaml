@@ -1,4 +1,4 @@
-name: gistenv
+name: ngistenv
 channels:
   - conda-forge
   - default
@@ -17,7 +17,13 @@ dependencies:
   - h5py
   - joblib
   - tqdm
+  - multiprocess
   - pip
   - pip:
     - printStatus
     - ppxf
+    - emcee
+    - plotbin
+    - vorbin
+    - plotly
+    - pandas
