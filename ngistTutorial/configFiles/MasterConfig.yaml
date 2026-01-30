@@ -87,7 +87,7 @@ CONT :
 
 # Emission line fitting module
 GAS :
-  METHOD : 'ppxf' # options are 'ppxf', 'gandalf' or 'MAGPI_gandalf' Name of the routine in emissionLines/ (without .py) to perform the tasks. Set False to turn off module. Set 'gandalf' to use the standard GIST implementation, exploiting the pyGandALF routine of Sarzi et al. (2006).
+  METHOD : 'ppxf' # options are 'ppxf', or 'gandalf'. Name of the routine in emissionLines/ (without .py) to perform the tasks. Set False to turn off module.
   SPEC_MASK : 'specMask_GAS'
   LEVEL : 'BIN' # Set 'BIN' to perform the analysis bin-by-bin, 'SPAXEL' for a spaxel-by-spaxel analysis, and 'BOTH' to perform a spaxel-by-spaxel analysis that is informed by a previous bin-by-bin analysis.
   LMIN : 4750 # Rest-frame wavelength range used for the emission-line analysis [in Angst.]
@@ -98,7 +98,7 @@ GAS :
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]
   MOM : 2 # Gas moments. Set to 2 for V and sigma. Higher orders not yet tested 
   EBmV : null # As opposed to None. De-redden the spectra for the Galactic extinction in the direction of the target previously to the analysis. Use e.g. EBmV = A_v / 3.2
-  EMI_FILE : 'emissionLines_ppxf.config' # Emission line set-up file for emline fitter. The specified path is relative to the configDir path in defaultDir. Set to 'emissionLinesPHANGS.config' when using the 'ppxf' routine, and 'emissionLines.config' when using the 'gandalf' or 'MAGPI_gandalf' routines.
+  EMI_FILE : 'emissionLines_ppxf.config' # Emission line set-up file for emline fitter. The specified path is relative to the configDir path in defaultDir. Set to 'emissionLines_ppxf.config' when using the 'ppxf' routine, and 'emissionLines_gandalf.config' when using the 'gandalf' routine.
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS'
   LIBRARY : 'MILES/' # options are 'MILES_EMLINES/' (contains asmaller subset of templates sim to that used by PHANGS) 'MILES/', 'miles_ssp_ch', or 'IndoUS'
