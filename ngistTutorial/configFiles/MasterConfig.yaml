@@ -27,7 +27,8 @@ SPATIAL_MASKING :
   METHOD : 'default' # Name of the routine in spatialMasking/ (without .py) to perform the tasks. Set False to turn off module. Set 'default' to use the standard GIST implementation.
   MIN_SNR : 20.0 # Spaxels below the isophote level which has this mean signal-to-noise level are masked.
   MASK : 'NGC0000_mask.fits' # File containing a spatial mask (Set False to not include a file).
-
+  THRESHOLD_METHOD: 'isophote' # Optional keyword to choose the type of spatial masking: 'isophote' (default), 'actual', 'smooth'
+  
 # Spatial binning module
 SPATIAL_BINNING :
   METHOD : 'voronoi' # Name of the routine in spatialBinning/ (without .py) to perform the tasks. Set 'spaxel' to turn off module. Set 'voronoi' to use the standard GIST implementation, exploiting the Voronoi tesselation routine of Cappellari & Copin (2003).
@@ -97,7 +98,6 @@ GAS :
   MDEG : 8 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials.
   FIXED : True # Fix the stellar kinematics to the results obtained with the stellar kinematics module [True / False]
   MOM : 2 # Gas moments. Set to 2 for V and sigma. Higher orders not yet tested 
-  EBmV : null # As opposed to None. De-redden the spectra for the Galactic extinction in the direction of the target previously to the analysis. Use e.g. EBmV = A_v / 3.2
   EMI_FILE : 'emissionLines_ppxf.config' # Emission line set-up file for emline fitter. The specified path is relative to the configDir path in defaultDir. Set to 'emissionLines_ppxf.config' when using the 'ppxf' routine, and 'emissionLines_gandalf.config' when using the 'gandalf' routine.
   LSF_TEMP : 'lsf_MILES' # Path of the file specifying the line-spread-function of the spectral templates. The specified path is relative to the configDir path in defaultDir.
   TEMPLATE_SET : 'miles' # options are 'miles' or 'IndoUS'
