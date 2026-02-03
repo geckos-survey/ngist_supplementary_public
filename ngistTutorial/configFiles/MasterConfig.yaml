@@ -27,7 +27,7 @@ SPATIAL_MASKING :
   METHOD : 'default' # Name of the routine in spatialMasking/ (without .py) to perform the tasks. Set False to turn off module. Set 'default' to use the standard GIST implementation.
   MIN_SNR : 20.0 # Spaxels below the isophote level which has this mean signal-to-noise level are masked.
   MASK : 'NGC0000_mask.fits' # File containing a spatial mask (Set False to not include a file).
-  THRESHOLD_METHOD: 'isophote' # Optional keyword to choose the type of spatial masking: 'isophote' (default), 'actual', 'smooth'
+  THRESHOLD_METHOD: 'isophote' # Optional keyword to choose the type of threshold masking: 'isophote' (default), 'actual', 'smooth'
   
 # Spatial binning module
 SPATIAL_BINNING :
@@ -43,7 +43,6 @@ PREPARE_SPECTRA :
 # Stellar kinematics module
 KIN :
   METHOD : 'ppxf' # Name of the routine in stellarKinematics/ (without .py) to perform the tasks. Set False to turn off module. Set 'ppxf' to use the standard GIST implementation, exploiting the pPXF routine of Cappellari & Emsellem (2004).
-  #SPEC_PREMASK : 'specMask_KIN' # Optional mask if you want the first steps to use a different mask as compared to the final fit
   SPEC_MASK : 'specMask_KIN' # File to define wavelength ranges to be masked during the stellar kinematics fit. The specified path is relative to the configDir path in defaultDir.
   LMIN : 4750 # Rest-frame wavelength range used for the stellar kinematics analysis [in Angst.]
   LMAX : 7100
@@ -89,7 +88,7 @@ CONT :
 # Emission line fitting module
 GAS :
   METHOD : 'ppxf' # options are 'ppxf', or 'gandalf'. Name of the routine in emissionLines/ (without .py) to perform the tasks. Set False to turn off module.
-  SPEC_MASK : 'specMask_GAS'
+  SPEC_MASK : 'specMask_GAS' # File to define wavelength ranges to be masked during the gas fit. The specified path is relative to the configDir path in defaultDir.
   LEVEL : 'BIN' # Set 'BIN' to perform the analysis bin-by-bin, 'SPAXEL' for a spaxel-by-spaxel analysis, and 'BOTH' to perform a spaxel-by-spaxel analysis that is informed by a previous bin-by-bin analysis.
   LMIN : 4750 # Rest-frame wavelength range used for the emission-line analysis [in Angst.]
   LMAX : 7100
