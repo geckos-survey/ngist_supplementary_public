@@ -109,7 +109,7 @@ SFH :
   METHOD : 'ppxf' # Name of the routine in starFormationHistories/ (without .py) to perform the tasks. Set False to turn off module. Set 'ppxf' to use the standard GIST implementation, exploiting the pPXF routine of Cappellari & Emsellem (2004).
   LMIN : 4750 # Rest-frame wavelength range used for the star formation histories analysis [in Angst.]
   LMAX : 7100
-  SPEC_MASK : 'specMask_SFH' # File to define wavelength ranges to be masked during the star formation histories analysis. The specified path is relative to the configDir path in defaultDir. 
+  SPEC_MASK : 'specMask_SFH_EmlineMask' # File to define wavelength ranges to be masked during the star formation histories analysis. The specified path is relative to the configDir path in defaultDir. 
   SPEC_EMICLEAN : False # Keyword (True/False) to enable/disable the use of emission line cleaned spectra from the Emission Line Fitting Module.   
   MOM : 4 # Number of kinematic moments to be extracted. If you use FIXED = True, this should be same number of moments used to extract the stellar kinematics before. Otherwise the parameter can be set independently. 
   MDEG : 12 # Degree of the multiplicative Legendre polynomial. Set '0' to not include any multiplicative polynomials. Note that additive Legendre polynomials cannot be used for this module. 
@@ -133,7 +133,7 @@ LS :
   TYPE : 'SPP' # Set 'LS' to only measure line strength indices, or 'SPP' to also match these indices to stellar population properties. 
   LS_FILE : 'lsBands.config' # File to define the wavelength band of the line strength indices to be measured. The specified path is relative to the configDir path in defaultDir.
   CONV_COR : 8.4 # Spectral resolution [in Angst.] at which the line strength indices are measured.
-  SPP_FILE : 'MILES_KB_LIS8.4.fits' # File providing predictions on line strength indices for a set of single stellar population models
+  SPP_FILE : 'MILES_CH_LIS8.4.fits' # File providing predictions on line strength indices for a set of single stellar population models
   MC_LS : 100 # Number of Monte-Carlo simulations in order to obtain errors on the line strength indices. Note: This must be turned on.
   NWALKER : 200 # Number of walkers for the MCMC algorithm (used for the conversion of indices to population properties)
   NCHAIN : 200 # Number of iterations in the MCMC algorithm (used for the conversion of indices to population properties)
